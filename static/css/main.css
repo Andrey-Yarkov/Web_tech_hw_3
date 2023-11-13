@@ -1,0 +1,319 @@
+main > .container {
+  padding: 120px 15px 0;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.webpage-title {
+  font-size: 40px;
+  font-family: Inter;
+  text-align: left;
+}
+
+.search-block {
+  font-size: 40px;
+  font-family: Inter;
+}
+
+.profile-block {
+  font-family: Inter;
+  align-items: center;
+  margin: auto;
+}
+
+.navbar-user-avatar {
+  max-width: 50px;
+  max-height: 100%;
+  float: right;
+}
+
+.navbar-username {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  color: white;
+}
+
+.title-text {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.question {
+  border: 2px solid gray;
+  margin-top: 20px;
+  padding: 10px 30px 20px 10px;
+  border-radius: 10px;
+}
+
+.question-avatar {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.likes-block {
+  margin: auto;
+  width: 80%;
+  float: left;
+}
+
+.likes-counter {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  align-self: center;
+  text-align: center;
+  margin: auto 20px auto auto;
+}
+
+.likes-btn-group {
+  width: 30px;
+}
+
+.likes-button {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0px!important;
+  height: fit-content;
+  width: 30px;
+  margin: auto 0 auto 0;
+}
+
+.question-title {
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-position: under;
+}
+
+.question-text {
+  font-size: 18px;
+  font-family: Inter;
+  margin-top: 20px;
+}
+
+.question-extra {
+  margin-top: 20px;
+}
+
+.page-navigation {
+  font-size: 18px;
+  font-family: Inter;
+  margin-top: 30px;
+}
+
+.third-party-info {
+  margin-left: 50px;
+}
+
+.tags {
+  font-size: 20px;
+  font-family: Inter;
+  margin-bottom: 30px;
+}
+
+.members {
+  font-size: 20px;
+  font-family: Inter;
+}
+
+.footnote {
+  font-size: 20px;
+  font-family: Inter;
+}
+
+.new-question-title {
+  margin-top: 20px;
+}
+
+.new-question-text {
+  margin-top: 20px;
+}
+
+.new-question-tags {
+  margin-top: 20px;
+}
+
+.new-question-label {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.question-ask-btn-block {
+  font-family: Inter;
+  margin-top: 30px;
+}
+
+.question-ask-btn {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+}
+
+.current-question-avatar {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.current-question-title {
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.current-question-text {
+  font-size: 18px;
+  font-family: Inter;
+  margin-top: 10px;
+}
+
+.answer {
+  border: 2px solid gray;
+  margin: 20px 10px 10px 10px;
+  padding: 10px 30px 20px 10px;
+  border-radius: 10px;
+}
+
+.answer-avatar {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.answer-text {
+  font-size: 18px;
+  font-family: Inter;
+  margin-top: 10px;
+}
+
+.answer-extra {
+  font-size: 20px;
+  font-family: Inter;
+  margin-top: 20px;
+}
+
+.answer-page-navigation {
+  font-size: 18px;
+  font-family: Inter;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.question-answer-btn-block {
+  font-family: Inter;
+  margin-top: 20px;
+}
+
+.question-answer-btn {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrong-password-warning {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: Inter;
+  color: red;
+  visibility: visible;
+}
+
+.login-block {
+  margin-top: 20px;
+}
+
+.login-label {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.login-field {
+  max-width: 50%;
+}
+
+.login-extra {
+  margin-top: 30px;
+}
+
+.login-btn {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrong-email-warning {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: Inter;
+  color: red;
+  visibility: visible;
+}
+
+.signup-block {
+  margin-top: 20px;
+}
+
+.signup-label {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.signup-field {
+  max-width: 50%;
+}
+
+.signup-avatar-field {
+  max-width: 100%;
+}
+
+.signup-choose-avatar-btn {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signup-extra {
+  margin-top: 30px;
+}
+
+.signup-btn {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  text-align: center;
+}

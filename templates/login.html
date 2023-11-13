@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="col-8">
+    <div class="row title-text">
+        <h1 style="display:inline">Log In</h1>
+    </div>
+    <div class="wrong-password-warning">Sorry, wrong password!</div>
+    <div class="row login-block">
+        <div class="col-3 login-label">
+            Login
+        </div>
+        <div class="col-9 login-field">
+            <input type="login" class="form-control" id="login" placeholder="Enter your login here"
+                   value="" required>
+        </div>
+    </div>
+    <div class="row login-block">
+        <div class="col-3 login-label">
+            Password
+        </div>
+        <div class="col-9 login-field">
+            <input type="password" class="form-control" id="password" placeholder="Enter your password here"
+                   value="" required>
+        </div>
+    </div>
+    <div class="row login-extra">
+        <div class="col-3">
+        </div>
+        <div class="col-9">
+            <button class="btn btn-outline-primary login-btn" type="submit">Log in!</button>
+            <h3 style="margin-top: 20px"><a href="{% url 'signup' %}">create new account</a></h3>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

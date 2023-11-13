@@ -1,0 +1,26 @@
+{% extends 'layouts/base_authorized.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'components/current-question-item.html' %}
+
+<hr class="hr hr-blurry"/>
+
+{% for answer in answers %}
+
+{% include 'components/answer-item.html' %}
+
+{% endfor %}
+
+{% include 'components/paginator-item.html' with page_obj=answers %}
+
+<hr class="hr hr-blurry"/>
+
+<textarea class="form-control" id="answer-text" rows="8"
+          placeholder="Enter your answer here"></textarea>
+<div class="question-answer-btn-block">
+    <button class="btn btn-outline-primary question-answer-btn" type="submit">Answer!</button>
+</div>
+{% endblock %}

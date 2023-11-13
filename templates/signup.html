@@ -1,0 +1,73 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="row title-text">
+    <h1 style="display:inline">Registration</h1>
+</div>
+<div class="wrong-email-warning">Sorry, this email address has already been registered!</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Login
+    </div>
+    <div class="col-9 signup-field">
+        <input type="login" class="form-control" id="login" placeholder="Enter your login here"
+               value="" required>
+    </div>
+</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Email
+    </div>
+    <div class="col-9 signup-field">
+        <input type="email" class="form-control" id="email" placeholder="Enter your email here"
+               value="" required>
+    </div>
+</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Nickname
+    </div>
+    <div class="col-9 signup-field">
+        <input type="text" class="form-control" id="nickname" placeholder="Enter your nickname here"
+               value="" required>
+    </div>
+</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Password
+    </div>
+    <div class="col-9 signup-field">
+        <input type="password" class="form-control" id="password" placeholder="Enter your password here"
+               value="" required>
+    </div>
+</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Repeat password
+    </div>
+    <div class="col-9 signup-field">
+        <input type="password" class="form-control" id="rep-password" placeholder="Repeat your password"
+               value="" required>
+    </div>
+</div>
+<div class="row signup-block">
+    <div class="col-3 signup-label">
+        Upload avatar
+    </div>
+    <div class="col-4 signup-avatar-field">
+        <input type="password" class="form-control" id="avatar" placeholder="Image path"
+               value="" required>
+    </div>
+    <div class="col-5">
+        <button class="btn btn-outline-secondary signup-choose-avatar-btn" type="submit">Choose</button>
+    </div>
+</div>
+<div class="row signup-extra">
+    <div class="col-3">
+    </div>
+    <div class="col-9">
+        <button class="btn btn-outline-primary signup-btn" type="submit">Register!</button>
+    </div>
+</div>
+
+{% endblock %}

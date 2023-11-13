@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-2">
+        {% include 'components/user-rating-item.html' %}
+    </div>
+    <div class="col-10">
+        <div class="current-question-title">{{ question.title }}</div>
+        <div class="current-question-text">{{ question.content }}</div>
+        <div class="question-extra">
+            <h4 style="display:inline; margin-left: 10px">Tags:
+                {% for tag in question.tags.all %}
+                <a href="{% url 'tag' tag_name=tag.name %}">{{ tag.name }}</a>
+                {% endfor %}
+            </h4>
+        </div>
+    </div>
+</div>

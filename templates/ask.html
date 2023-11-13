@@ -1,0 +1,45 @@
+{% extends 'layouts/base_authorized.html' %}
+
+{% block content %}
+<div class="row title-text">
+    <h1 style="display:inline">New Question</h1>
+</div>
+<div class="row new-question-title">
+    <div class="col-1 new-question-label">
+        Title
+    </div>
+    <div class="col-11">
+        <input type="text" class="form-control" id="title" placeholder="Enter your question title"
+               value="" required>
+        <div class="invalid-feedback">
+            Valid question title required.
+        </div>
+    </div>
+</div>
+<div class="row new-question-text">
+    <div class="col-1 new-question-label">
+        Text
+    </div>
+    <div class="col-11">
+                        <textarea class="form-control" id="text" rows="16"
+                                  placeholder="Enter your question here"></textarea>
+    </div>
+</div>
+<div class="row new-question-tags">
+    <div class="col-1 new-question-label">
+        Tags
+    </div>
+    <div class="col-11">
+        <input type="text" class="form-control" id="tags" placeholder="Enter your question tags"
+               value="" required>
+        <div class="invalid-feedback">
+            Valid tags required.
+        </div>
+
+        <div class="question-ask-btn-block">
+            <button class="btn btn-outline-primary question-answer-btn" type="submit">ASK!</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

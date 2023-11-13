@@ -1,0 +1,119 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+
+    <link href="{% static '/bootstrap-5.2.3-dist/css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body class="d-flex flex-column h-100">
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <div class="col-3 webpage-title">
+                <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 40px">Askpedia</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="col-4 search-block">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           style="max-width: 80%">
+                </form>
+            </div>
+
+            <div class="col-2">
+                <form class="d-flex" role="search">
+                    <button class="btn btn-outline-light" type="submit" disabled
+                            style="font-size: 30px; font-family: Inter; font-weight: bold">ASK!
+                    </button>
+                </form>
+            </div>
+
+            <div class="col-3 profile-block">
+                <h4 style="display:inline;"><a href="{% url 'login' %}" style="color: white;">log in</a></h4>
+                <h4 style="display:inline; margin-left: 10px"><a href="{% url 'signup' %}" style="color: white;">register</a>
+                </h4>
+            </div>
+        </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                {% block content %}
+                Empty block
+                {% endblock %}
+            </div>
+
+            <div class="col-4">
+                <div class="row third-party-info">
+                    <h2>Popular Tags</h2>
+                    <div class="tags">
+                        <span class="badge bg-primary">Primary</span>
+                        <span class="badge bg-secondary">Secondary</span>
+                        <span class="badge bg-success">Success</span>
+                        <span class="badge bg-danger">Danger</span>
+                        <span class="badge bg-warning text-dark">Warning</span>
+                        <span class="badge bg-info text-dark">Info</span>
+                        <span class="badge bg-light text-dark">Light</span>
+                        <span class="badge bg-dark">Dark</span>
+                    </div>
+                    <h2>Best Members</h2>
+                    <ul class="list-group members">
+                        <li class="list-group-item border-0"><a href="">Member1</a></li>
+                        <li class="list-group-item border-0"><a href="">Member2</a></li>
+                        <li class="list-group-item border-0"><a href="">Member3</a></li>
+                        <li class="list-group-item border-0"><a href="">Member4</a></li>
+                        <li class="list-group-item border-0"><a href="">Member5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted footnote">Made by Yarkov Andrey (ANDR-11)</span>
+    </div>
+</footer>
+
+
+<script src="{% static '/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js' %}"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
