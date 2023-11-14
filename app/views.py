@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from app.models import Question, Tag, Answer
+from app.models import Question
 
 # global data
 def paginate(object, page, per_page=5):
@@ -40,7 +40,8 @@ def hot(request):
 def question(request, question_id):
     page = request.GET.get('page', 1)
     question_item = Question.objects.get(pk=question_id)
-    answers = Answer.objects.get_answers_for_question(question_item)
+    answers = question_item.answer_set.sort_by_rating()
+    #answers = Answer.objects.get_answers_for_question(question_item)
     return render(request, 'question.html',
                   context={'question': question_item,
                            'answers': paginate(answers, page)})

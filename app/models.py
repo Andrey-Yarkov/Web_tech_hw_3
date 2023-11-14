@@ -39,7 +39,6 @@ class Question(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.PROTECT)
     avatar = models.ImageField()
-    rates = models.ForeignKey('Rate', null=True, blank=True, max_length=256, on_delete=models.PROTECT)
     user_rating = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
@@ -58,27 +57,68 @@ class Tag(models.Model):
         return f"{self.name}"
 
 
-class RateManager(models.Manager):
-    def get_question_rate(self, question):
-        rates = self.filter(question=question)
-        positive_rates = rates.filter(is_positive=True)
-        return 2 * positive_rates.count() - rates.count()
-
-class Rate(models.Model):
-    is_positive = models.BooleanField(null=True, blank=True)
-    question = models.ForeignKey('Question', max_length=256, on_delete=models.PROTECT)
-
-    objects = RateManager()
-
-
 class AnswerManager(models.Manager):
     def get_answers_for_question(self, question):
         return self.filter(question=question)
+
+    def sort_by_rating(self):
+        return self.order_by('-rating')
 
 class Answer(models.Model):
     content = models.TextField()
     is_correct = models.BooleanField(default=False)
     author = models.ForeignKey('Profile', max_length=256, on_delete=models.PROTECT)
     question = models.ForeignKey('Question', max_length=256, on_delete=models.PROTECT)
+    creation_time = models.DateTimeField(default=datetime.now, blank=True)
+    rating = models.IntegerField(default=0, blank=True)
 
     objects = AnswerManager()
+
+    def save(self, *args, **kwargs):
+        super(Answer, self).save(*args, **kwargs)
+        self.question.answers_count = self.question.answers_count + 1
+        self.question.save()
+
+
+class QuestionRateManager(models.Manager):
+    def get_question_rate(self, question):
+        rates = self.filter(question=question)
+        positive_rates = rates.filter(is_positive=True)
+        return 2 * positive_rates.count() - rates.count()
+
+class QuestionRate(models.Model):
+    is_positive = models.BooleanField(null=True, blank=True)
+    question = models.ForeignKey('Question', max_length=256, on_delete=models.PROTECT)
+    user = models.ForeignKey('Profile', max_length=256, on_delete=models.PROTECT)
+
+    objects = QuestionRateManager()
+
+    def save(self, *args, **kwargs):
+        super(QuestionRate, self).save(*args, **kwargs)
+        if (self.is_positive):
+            self.question.rating = self.question.rating + 1
+        else:
+            self.question.rating = self.question.rating - 1
+        self.question.save()
+
+
+class AnswerRateManager(models.Manager):
+    def get_answer_rate(self, answer):
+        rates = self.filter(answer=answer)
+        positive_rates = rates.filter(is_positive=True)
+        return 2 * positive_rates.count() - rates.count()
+
+class AnswerRate(models.Model):
+    is_positive = models.BooleanField(null=True, blank=True)
+    answer = models.ForeignKey('Answer', max_length=256, on_delete=models.PROTECT)
+    user = models.ForeignKey('Profile', max_length=256, on_delete=models.PROTECT)
+
+    objects = AnswerRateManager()
+
+    def save(self, *args, **kwargs):
+        super(AnswerRate, self).save(*args, **kwargs)
+        if (self.is_positive):
+            self.answer.rating = self.answer.rating + 1
+        else:
+            self.answer.rating = self.answer.rating - 1
+        self.answer.save()
