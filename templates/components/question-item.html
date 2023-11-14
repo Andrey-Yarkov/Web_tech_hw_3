@@ -8,7 +8,7 @@
         <div class="question-title"><a href="{% url 'question' question_id=question.id %}">{{ question.title }}</a></div>
         <div class="question-text">{{ question.content }}</div>
         <div class="question-extra">
-            <h4 style="display:inline;"><a href="">Answers (0)</a></h4>
+            <h4 style="display:inline;"><a href="">Answers ({{ question.answers_count }})</a></h4>
             <h4 style="display:inline; margin-left: 10px">Tags:
                 {% for tag in question.tags.all %}
                 <a href="{% url 'tag' tag_name=tag.name %}">{{ tag.name }}</a>

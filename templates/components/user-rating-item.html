@@ -3,7 +3,7 @@
 <img src="{% static '/img/profile_avatar.jpg' %}" alt="" class="answer-avatar">
 <div class="d-flex justify-content-center likes-block">
     <div class="likes-counter">
-        0
+        {{ question.rating }}
     </div>
     <div class="btn-group-vertical likes-btn-group">
         <button type="button" class="btn btn-outline-success btn-sm likes-button">+</button>
