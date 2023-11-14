@@ -38,7 +38,7 @@ class Question(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.PROTECT)
-    avatar = models.ImageField()
+    avatar = models.ImageField(blank=True)
     user_rating = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
@@ -71,13 +71,16 @@ class Answer(models.Model):
     question = models.ForeignKey('Question', max_length=256, on_delete=models.PROTECT)
     creation_time = models.DateTimeField(default=datetime.now, blank=True)
     rating = models.IntegerField(default=0, blank=True)
+    is_created = models.BooleanField(default=False)
 
     objects = AnswerManager()
 
     def save(self, *args, **kwargs):
         super(Answer, self).save(*args, **kwargs)
-        self.question.answers_count = self.question.answers_count + 1
-        self.question.save()
+        if not self.is_created:
+            self.is_created = True
+            self.question.answers_count = self.question.answers_count + 1
+            self.question.save()
 
 
 class QuestionRateManager(models.Manager):
