@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from datetime import datetime
+from django.utils import timezone
 
 
 # Create your models here.
@@ -26,7 +27,7 @@ class Question(models.Model):
     content = models.TextField()
     author = models.ForeignKey('Profile', max_length=256, on_delete=models.PROTECT)
     tags = models.ManyToManyField('Tag', related_name='questions', blank=True)
-    creation_time = models.DateTimeField(default=datetime.now, blank=True)
+    creation_time = models.DateTimeField(default=timezone.now, blank=True)
     rating = models.IntegerField(default=0, blank=True)
     answers_count = models.IntegerField(default=0, blank=True)
 
@@ -69,7 +70,7 @@ class Answer(models.Model):
     is_correct = models.BooleanField(default=False)
     author = models.ForeignKey('Profile', max_length=256, on_delete=models.PROTECT)
     question = models.ForeignKey('Question', max_length=256, on_delete=models.PROTECT)
-    creation_time = models.DateTimeField(default=datetime.now, blank=True)
+    creation_time = models.DateTimeField(default=timezone.now, blank=True)
     rating = models.IntegerField(default=0, blank=True)
     is_created = models.BooleanField(default=False)
 
