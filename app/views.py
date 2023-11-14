@@ -21,27 +21,26 @@ def paginate(object, page, per_page=5):
 # Create your views here.
 def index(request):
     page = request.GET.get('page', 1)
-    questions = Question.object.all()
+    questions = Question.objects.newest()
     return render(request, 'index.html', context={'questions': paginate(questions, page)})
 
 
 def tag(request, tag_name):
     page = request.GET.get('page', 1)
-    tag_item = Tag.object.filter(name=tag_name)
-    questions = Question.object.filter(tags__in=tag_item)
+    questions = Question.objects.get_questions_by_tag(tag_name)
     return render(request, 'tag.html', context={'tag': tag_name, 'questions_by_tag': paginate(questions, page)})
 
 
 def hot(request):
     page = request.GET.get('page', 1)
-    hot_questions = Question.object.sort_by_rating()
+    hot_questions = Question.objects.sort_by_rating()
     return render(request, 'hot.html', context={'hot_questions': paginate(hot_questions, page)})
 
 
 def question(request, question_id):
     page = request.GET.get('page', 1)
-    question_item = Question.object.get(pk=question_id)
-    answers = Answer.object.filter(question=question_item)
+    question_item = Question.objects.get(pk=question_id)
+    answers = Answer.objects.get_answers_for_question(question_item)
     return render(request, 'question.html',
                   context={'question': question_item,
                            'answers': paginate(answers, page)})
